@@ -1,12 +1,12 @@
 {
   "name": "boilerplate_ts-node_typescript",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "src/1/index.ts",
   "author": "Toby Hamand (work@tobyhamand.com)",
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/1/index.ts"
   },
   "dependencies": {
     "ts-node": "^9.0.0",
