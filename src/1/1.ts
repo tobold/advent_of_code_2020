@@ -201,7 +201,7 @@ const data: number[] = [
   1893,
 ];
 
-const main = (numbers: number[] = data): number => {
+const partOne = (numbers: number[] = data): number => {
   let answer;
   numbers.forEach((number) => {
     numbers.forEach((newNumber) => {
@@ -214,4 +214,25 @@ const main = (numbers: number[] = data): number => {
   }
 };
 
-console.log(main(data));
+const partTwo = (numbers: number[] = data): number => {
+  let answer;
+  numbers.forEach((firstNumber) => {
+    numbers.forEach((secondNumber) => {
+      numbers.forEach((thirdNumber) => {
+        if (
+          firstNumber === secondNumber ||
+          firstNumber === thirdNumber ||
+          secondNumber === thirdNumber
+        )
+          return;
+        if (firstNumber + secondNumber + thirdNumber === 2020)
+          answer = firstNumber * secondNumber * thirdNumber;
+      });
+    });
+  });
+  if (answer) {
+    return answer;
+  }
+};
+
+console.log(partTwo(data));
