@@ -1,6 +1,6 @@
 import { input } from './input';
 
-export const checkPassword = (input: string): boolean => {
+export const checkPasswordPartOne = (input: string): boolean => {
   const [numberLimits, letterInput, password] = input.split(' ');
   const [minimum, maximum] = numberLimits
     .split('-')
@@ -13,7 +13,27 @@ export const checkPassword = (input: string): boolean => {
 };
 
 const partOne = (input: string[]) => {
-  return input.filter(checkPassword).length;
+  return input.filter(checkPasswordPartOne).length;
 };
 
-console.log(partOne(input));
+export const checkPasswordPartTwo = (input: string): boolean => {
+  const [numberLimits, letterInput, password] = input.split(' ');
+  const [firstPosition, secondPosition] = numberLimits
+    .split('-')
+    .map((limit) => Number(limit));
+  const letter = letterInput.replace(':', '');
+
+  const firstPositionCorrect = password[firstPosition - 1] === letter;
+  const secondPositionCorrect = password[secondPosition - 1] === letter;
+
+  if (firstPositionCorrect || secondPositionCorrect) {
+    const bothAreCorrect = firstPositionCorrect && secondPositionCorrect;
+    return !bothAreCorrect;
+  }
+};
+
+const partTwo = (input: string[]) => {
+  return input.filter(checkPasswordPartTwo).length;
+};
+
+console.log(partTwo(input));
